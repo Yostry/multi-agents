@@ -1,0 +1,2131 @@
+{
+  "storage": {
+    "air_conditioning": {
+      "libraries": [
+        "libac"
+      ],
+      "common_icons": [
+        "ac_accumulator",
+        "ac_fd_compressor",
+        "ac_vd_compressor",
+        "ac_vd_ic_compressor",
+        "th_c"
+      ],
+      "total_submodels": 9
+    },
+    "thermal": {
+      "libraries": [
+        "libth"
+      ],
+      "common_icons": [
+        "dynamic_th_c",
+        "th_c",
+        "th_ma_chamber",
+        "th_thermal_mass",
+        "th_volume",
+        "th_volume_interface"
+      ],
+      "total_submodels": 8
+    },
+    "aircraft_fuel": {
+      "libraries": [
+        "libacf"
+      ],
+      "common_icons": [
+        "acf_chamber_4_ports_fil",
+        "acf_mass_flow_sensor",
+        "acf_plug_fil",
+        "acf_ql_source",
+        "acf_tank_sensor",
+        "acf_volumetric_flow_sensor",
+        "dynamic_acf_to_flightdyn"
+      ],
+      "total_submodels": 15
+    },
+    "mechanical_1d": {
+      "libraries": [
+        "libmec"
+      ],
+      "common_icons": [
+        "anglesensor2",
+        "angularaccelerationsensor2",
+        "connector_ei",
+        "inertia_ei",
+        "karnop2mass",
+        "mass1port",
+        "mass2port",
+        "mass_envelope",
+        "mass_ext_envelope",
+        "mass_friction1port",
+        "mass_friction2port",
+        "mass_friction_endstops",
+        "powersensor_rotary",
+        "rope4",
+        "rotaryVariableInertia",
+        "rotaryload2ports",
+        "rotaryspeedsensor2",
+        "simple_crank",
+        "torquesensor2",
+        "variableMass"
+      ],
+      "total_submodels": 47
+    },
+    "engine": {
+      "libraries": [
+        "libeng"
+      ],
+      "common_icons": [
+        "appMain",
+        "dynamic_eng_ch",
+        "eng_canister",
+        "eng_combustion_SI",
+        "eng_compressor",
+        "eng_crank",
+        "eng_crank_remote",
+        "eng_halfheater_glbang",
+        "eng_heaterflux1",
+        "eng_heaterflux2",
+        "eng_injector",
+        "eng_injector_simple",
+        "eng_msensor",
+        "eng_mvem_voleff",
+        "eng_pipe",
+        "eng_wall_wet",
+        "eng_wall_wet2",
+        "eng_xsensor",
+        "eng_ysensor",
+        "gas_stream_inertia_effect_VVT",
+        "ice_combustion_tool_Wiebe",
+        "ice_combustion_tool_barba",
+        "ice_combustion_tool_cfm",
+        "image018",
+        "injector_R08b"
+      ],
+      "total_submodels": 88
+    },
+    "cooling": {
+      "libraries": [
+        "libcs"
+      ],
+      "common_icons": [
+        "cs_accumulator_2_ports",
+        "cs_accumulator_3_ports",
+        "cs_engflux",
+        "engine_two_thermal_masses",
+        "gas_mass_flow_rate"
+      ],
+      "total_submodels": 9
+    },
+    "filling": {
+      "libraries": [
+        "libfi"
+      ],
+      "common_icons": [
+        "hflowcon",
+        "hrtee2p90"
+      ],
+      "total_submodels": 2
+    },
+    "thermal_hydraulic": {
+      "libraries": [
+        "libthh"
+      ],
+      "common_icons": [
+        "accumulator",
+        "actuatormass01",
+        "actuatormass02",
+        "actuatormass03",
+        "actuatormass04",
+        "dynamic_hydraulic_chamber",
+        "dynamic_hydraulic_chamber_th",
+        "general_hydraulic_chamber",
+        "heaterflux4bis",
+        "hydraulic_chamber_4_ports",
+        "hydraulic_chamber_6_ports",
+        "hydraulicplug",
+        "motor02",
+        "motor03",
+        "motor04",
+        "pump01",
+        "pump03",
+        "pump04",
+        "tf_accumulator_2_ports",
+        "tf_volumetric_pump",
+        "thf_gas_mass_flow_rate_sensor",
+        "thf_gas_mass_fraction_sensor",
+        "thf_mass_flow_sensor",
+        "volumesensor"
+      ],
+      "total_submodels": 42
+    },
+    "gas_mixture": {
+      "libraries": [
+        "libgm"
+      ],
+      "common_icons": [
+        "gm_chamber",
+        "gm_chamber_2ports",
+        "gm_diff",
+        "gm_pipe",
+        "gm_pipe_heat",
+        "gm_ysensor"
+      ],
+      "total_submodels": 8
+    },
+    "hydraulic": {
+      "libraries": [
+        "libhydr"
+      ],
+      "common_icons": [
+        "accumulator",
+        "actuator002",
+        "actuator004",
+        "actuatormass01",
+        "actuatormass02",
+        "actuatormass03",
+        "actuatormass04",
+        "dynamic_hydr_chamber",
+        "general_hydraulic_chamber",
+        "h2port",
+        "hr_thick_edged_orifice",
+        "hydraulic_chamber_4_ports",
+        "hydraulic_chamber_6_ports",
+        "powersensor_hflow",
+        "springaccumulator",
+        "springreturnactuator",
+        "volumesensor",
+        "zerohydraulicvolume"
+      ],
+      "total_submodels": 35
+    },
+    "planar_mechanical": {
+      "libraries": [
+        "libplm"
+      ],
+      "common_icons": [
+        "dynamic_plmbody",
+        "dynamic_plmbody_mass",
+        "dynamic_plmbody_mass_inertia",
+        "plm10port",
+        "plmassembly",
+        "plmbod1",
+        "plmbod2",
+        "plmbod3",
+        "plmbod4",
+        "plmbod5",
+        "plmbod6",
+        "plmdisplacementsensor",
+        "plmrope",
+        "plmsheave01",
+        "plmto1d",
+        "plmto1dconnector",
+        "plmwinch1"
+      ],
+      "total_submodels": 18
+    },
+    "pneumatic": {
+      "libraries": [
+        "libpn"
+      ],
+      "common_icons": [
+        "dynamic_pn_chamber",
+        "dynamic_pn_volCAD2AME",
+        "heaterflux4bis",
+        "p2port",
+        "pn_actuator2",
+        "pn_actuatorm1",
+        "pn_actuatorm2",
+        "pn_actuatorm3",
+        "pn_actuatorm4",
+        "pn_chamber_4_ports",
+        "pn_chamber_6_ports",
+        "pn_general_chamber",
+        "pn_qsensor",
+        "pn_qvolsensor",
+        "pnchamber"
+      ],
+      "total_submodels": 23
+    },
+    "two_phase_flow": {
+      "libraries": [
+        "libtpf"
+      ],
+      "common_icons": [
+        "th_ma_chamber",
+        "tpf_adiab_chamber",
+        "tpf_bhc1",
+        "tpf_bhc2",
+        "tpf_chamber_heat",
+        "tpf_injection_nozzle",
+        "tpf_ma_dmtog",
+        "tpf_ma_dmtog_profile_cond",
+        "tpf_ma_dmtog_profile_evap",
+        "tpf_ma_gtodm",
+        "tpf_mass_flow_sensor",
+        "tpf_modulated_adiab_chamber",
+        "tpf_modulated_chamber_heat",
+        "tpf_pipe_heat_extra",
+        "tpf_regular_friction"
+      ],
+      "total_submodels": 24
+    }
+  },
+  "transfer": {
+    "air_conditioning": {
+      "libraries": [
+        "libac"
+      ],
+      "common_icons": [
+        "ac_bphe",
+        "ac_bulb",
+        "ac_cabin",
+        "ac_comp_valve",
+        "ac_cond_global_data",
+        "ac_cond_inter_1",
+        "ac_cond_inter_2",
+        "ac_cond_ref",
+        "ac_cond_top_1",
+        "ac_cond_top_2",
+        "ac_dual_core",
+        "ac_evap_global_data",
+        "ac_expansion_valve",
+        "ac_fd_compressor",
+        "ac_ft_global_data",
+        "ac_hex_calib_tool",
+        "ac_ma_dual_core",
+        "ac_ma_mctf_int1",
+        "ac_ma_mctf_int2",
+        "ac_ma_mctf_ref1",
+        "ac_ma_mctf_ref2",
+        "ac_ma_mctf_top1",
+        "ac_ma_mctf_top2",
+        "ac_ma_ucpf_end1",
+        "ac_ma_ucpf_end2",
+        "ac_ma_ucpf_int1",
+        "ac_ma_ucpf_int2",
+        "ac_ma_ucpf_ref1",
+        "ac_ma_ucpf_ref2",
+        "ac_mctf_global_data"
+      ],
+      "total_submodels": 97
+    },
+    "thermal": {
+      "libraries": [
+        "libth"
+      ],
+      "common_icons": [
+        "amb_cond",
+        "app_none",
+        "conduction_1D",
+        "dynamic_th_c_disc",
+        "dynamic_th_enclosure",
+        "dynamic_th_ma_demux",
+        "dynamic_th_ma_mux",
+        "hex_assistant",
+        "th_c",
+        "th_conduction",
+        "th_conv_enclosure",
+        "th_convection",
+        "th_convection2p",
+        "th_cyl_wall",
+        "th_emachine_generic",
+        "th_foster_cauer_zth",
+        "th_foster_cauer_zth_pwm_sig",
+        "th_internal_conv2p",
+        "th_ma_duplicator",
+        "th_opaque_surface",
+        "th_pcm_data",
+        "th_pil_conv2p",
+        "th_piloted_conduction",
+        "th_piloted_convection",
+        "th_piloted_radiation",
+        "th_rad",
+        "th_rad2",
+        "th_rad3",
+        "th_solar_radiation",
+        "th_solar_radiation2"
+      ],
+      "total_submodels": 64
+    },
+    "aircraft_fuel": {
+      "libraries": [
+        "libacf"
+      ],
+      "common_icons": [
+        "acf_ac_atti_accel2",
+        "acf_accel",
+        "acf_bend_fil",
+        "acf_bend_fil_2",
+        "acf_diffconv_fil",
+        "acf_expcont_fil",
+        "acf_fuel_piping_heat",
+        "acf_fuelpipe",
+        "acf_hose",
+        "acf_orifice_fil",
+        "acf_orifices_rib",
+        "acf_pipe_fil",
+        "acf_pipe_fil_2",
+        "acf_piping_heat_fil",
+        "acf_tnkthh_variable",
+        "acf_tnkthhcv_in",
+        "acf_tnkthhcv_out",
+        "acf_vorifice_fil",
+        "computation_free_surface"
+      ],
+      "total_submodels": 40
+    },
+    "engine": {
+      "libraries": [
+        "libeng"
+      ],
+      "common_icons": [
+        "appMain",
+        "appManualPhasing",
+        "compressor_opti",
+        "dynamic_eng_modelsplitC",
+        "dynamic_eng_modelsplitR",
+        "eng12_fluid_data",
+        "eng_acc",
+        "eng_bent_pipe",
+        "eng_bent_pipe_heat",
+        "eng_camactuation",
+        "eng_central_housing_turbocomp",
+        "eng_central_housing_turbocomp_v2",
+        "eng_checkvalve",
+        "eng_combustion_BMFWIEBE",
+        "eng_combustion_CFM",
+        "eng_combustion_CFM_v2",
+        "eng_combustion_DFM",
+        "eng_combustion_DFM_v2",
+        "eng_combustion_Diesel",
+        "eng_combustion_Diesel_BB",
+        "eng_combustion_Diesel_BB_v2",
+        "eng_combustion_Diesel_polluants",
+        "eng_combustion_SI",
+        "eng_combustion_SI_BB",
+        "eng_combustion_Wiebe",
+        "eng_compressor",
+        "eng_conv",
+        "eng_definition",
+        "eng_diffconv",
+        "eng_ejector"
+      ],
+      "total_submodels": 312
+    },
+    "cooling": {
+      "libraries": [
+        "libcs"
+      ],
+      "common_icons": [
+        "centrifugalpump",
+        "condenser",
+        "cs_engflux",
+        "cs_ice",
+        "cs_pump",
+        "csdata",
+        "egrexchanger",
+        "mprofile",
+        "ocexchanger",
+        "ocexchanger_2",
+        "operating",
+        "radiator",
+        "radiator_air_control",
+        "radiatorkp",
+        "radiatorkp2",
+        "sc_engine",
+        "sc_engine1",
+        "sc_engine3",
+        "thermostat",
+        "thermostat_3v",
+        "thermostat_4v",
+        "vehicle"
+      ],
+      "total_submodels": 71
+    },
+    "electric": {
+      "libraries": [
+        "libeb"
+      ],
+      "common_icons": [
+        "3DRC",
+        "3DRC_controlled",
+        "3SR",
+        "3SRL",
+        "3SRL_controlled",
+        "3SR_controlled",
+        "capacitor",
+        "diode",
+        "diode_with_thermalport",
+        "dynamic_eb_mux_i",
+        "dynamic_eb_mux_v",
+        "eb_BatPackSimple",
+        "eb_PiLines",
+        "eb_Three2One",
+        "eb_operational_amplifier",
+        "eb_solar_array",
+        "electrical_variable_inductance",
+        "inductor",
+        "mutual_inductance",
+        "powermeter",
+        "resistance",
+        "resistance_with_thermalport",
+        "variable_capacitor",
+        "variable_resistance",
+        "variableresistance_with_thermalport",
+        "voltmeter",
+        "zener_diode_with_thermal_port",
+        "zenerdiode"
+      ],
+      "total_submodels": 100
+    },
+    "electrochemistry": {
+      "libraries": [
+        "libec"
+      ],
+      "common_icons": [
+        "electrode",
+        "electrode_modulated",
+        "electrolyte",
+        "redoxdef",
+        "resistance_with_thermalport"
+      ],
+      "total_submodels": 45
+    },
+    "fuel_cell": {
+      "libraries": [
+        "libfc"
+      ],
+      "common_icons": [
+        "fc_reformer",
+        "fccondenser",
+        "fchumidifier",
+        "fcstack",
+        "fcstack2",
+        "fcstacknD",
+        "gm_porous_media",
+        "pemecstack"
+      ],
+      "total_submodels": 42
+    },
+    "gas_mixture": {
+      "libraries": [
+        "libgm"
+      ],
+      "common_icons": [
+        "gm_bend_pipe",
+        "gm_butterfly",
+        "gm_butterfly_meca_port",
+        "gm_capillar",
+        "gm_checkvalve",
+        "gm_checkvalve2",
+        "gm_compressor",
+        "gm_convection_2p",
+        "gm_def",
+        "gm_diff",
+        "gm_diffconv_no_heat_exchange",
+        "gm_ejectorpump",
+        "gm_ejectorpump2",
+        "gm_exchanger",
+        "gm_exchanger1",
+        "gm_exchanger_reg",
+        "gm_expcont",
+        "gm_gas_data",
+        "gm_gate",
+        "gm_global_settings",
+        "gm_globe",
+        "gm_heatflux_1",
+        "gm_heatflux_2",
+        "gm_mdiff",
+        "gm_morifice",
+        "gm_orifice",
+        "gm_piloted_convection_2ports",
+        "gm_pipe",
+        "gm_pipe_heat",
+        "gm_porous_media"
+      ],
+      "total_submodels": 206
+    },
+    "filling": {
+      "libraries": [
+        "libfi"
+      ],
+      "common_icons": [
+        "hrexpcont",
+        "hrpipe",
+        "hrrestriction",
+        "pn_gas_data",
+        "variableorifice"
+      ],
+      "total_submodels": 8
+    },
+    "thermal_hydraulic": {
+      "libraries": [
+        "libthh"
+      ],
+      "common_icons": [
+        "Dualvalve01",
+        "annorif",
+        "ballvalve",
+        "bearing_discrete",
+        "butterflyvalve",
+        "cbvalve",
+        "degasser",
+        "dynamic_thf_pipe",
+        "dynamic_volCAD2AME",
+        "ejector_pump",
+        "ejector_pump2",
+        "flowcontrol01",
+        "flowcontrol03",
+        "flowdivcomb",
+        "flowmeter",
+        "fluidprop_sign",
+        "fluidprops",
+        "flushvalve",
+        "gearpump",
+        "gearpump01",
+        "hose",
+        "hr_bf_cst_bearing",
+        "hr_bf_mod_bearing",
+        "hr_bf_pet_mod_bearing",
+        "hr_bf_pet_mod_bearing_mec",
+        "hr_bf_pet_mod_bearing_mec3d",
+        "hr_jf_cst_bearing",
+        "hr_jf_mod_bearing",
+        "hr_jf_pet_mod_bearing",
+        "hr_jf_pet_mod_bearing_mec"
+      ],
+      "total_submodels": 423
+    },
+    "hydraulic": {
+      "libraries": [
+        "libhydr"
+      ],
+      "common_icons": [
+        "Dualvalve01",
+        "LW_center",
+        "LW_end",
+        "MomentConEquation",
+        "annorif",
+        "ballvalve",
+        "butterflyvalve",
+        "cbvalve",
+        "dieselprops",
+        "drophydraulicprops",
+        "ejector_pump",
+        "ejector_pump2",
+        "elementaryhydraulicprops",
+        "flowcontrol01",
+        "flowcontrol02",
+        "flowcontrol03",
+        "flowdivcomb",
+        "flowmeter",
+        "fluidprop_sign",
+        "fluidprops",
+        "flushvalve",
+        "gearpump",
+        "gearpump01",
+        "h2port",
+        "hflowcon",
+        "hose",
+        "hosedata01",
+        "hr_sharp_edged_orifice",
+        "hr_thick_edged_orifice",
+        "hsv_2pos3port_00"
+      ],
+      "total_submodels": 263
+    },
+    "pneumatic": {
+      "libraries": [
+        "libpn"
+      ],
+      "common_icons": [
+        "ammonia",
+        "argon",
+        "atmos4",
+        "butane",
+        "carbondioxide",
+        "carbonmonoxide",
+        "dry_air",
+        "ethane",
+        "ethylene",
+        "helium",
+        "heptane",
+        "hexane",
+        "hydrogen",
+        "isobutane",
+        "methane",
+        "neon",
+        "nitricacid",
+        "nitricoxide",
+        "nitrogen",
+        "nitrogendioxide",
+        "oxygen",
+        "p2port",
+        "pentane",
+        "pn2_acc",
+        "pn_bend_pipe",
+        "pn_butterfly",
+        "pn_butterfly_meca_port",
+        "pn_capillar",
+        "pn_checkvalve",
+        "pn_checkvalve2"
+      ],
+      "total_submodels": 365
+    },
+    "two_phase_flow": {
+      "libraries": [
+        "libtpf"
+      ],
+      "common_icons": [
+        "app_none",
+        "th_ma_conv_fwall",
+        "th_ma_conv_wall",
+        "th_ma_duplicator",
+        "tpf_acc",
+        "tpf_baf1",
+        "tpf_bend",
+        "tpf_bend_heat",
+        "tpf_centrif_comp",
+        "tpf_centrif_comp_igv",
+        "tpf_centrif_pump",
+        "tpf_compressor",
+        "tpf_compressor_polynom",
+        "tpf_compressor_tpf_pump",
+        "tpf_conv_ma_fwall",
+        "tpf_conv_ma_fwall2",
+        "tpf_conv_ma_wall",
+        "tpf_diff_conv",
+        "tpf_ejector",
+        "tpf_expcont",
+        "tpf_fin_tube",
+        "tpf_fluid_separator",
+        "tpf_ma_dmtog",
+        "tpf_ma_gtodm",
+        "tpf_mcompressor_polynom",
+        "tpf_morifice",
+        "tpf_obc_mp",
+        "tpf_orifice",
+        "tpf_phase_separator",
+        "tpf_pipe"
+      ],
+      "total_submodels": 203
+    },
+    "mechanical_1d": {
+      "libraries": [
+        "libmec"
+      ],
+      "common_icons": [
+        "1part_rot_friction_new",
+        "2_rotary_loads",
+        "2parts_rot_friction_new",
+        "ARM02A_image001",
+        "ARM02_image001",
+        "Belleville_spring_washer",
+        "MEC4BARTRANSF0p",
+        "adapter",
+        "arm",
+        "arm2",
+        "cam2",
+        "compcable",
+        "damper01",
+        "damper02",
+        "dblelasticendstop",
+        "dyn_friction",
+        "elasticendstop",
+        "endrope",
+        "endrope4",
+        "export_to_testlab",
+        "gravityicon",
+        "karnop",
+        "karnopR1",
+        "karnopR2",
+        "lever1",
+        "lever2",
+        "lever3",
+        "lever4",
+        "linearxvfromxcon",
+        "mecaLinearCam"
+      ],
+      "total_submodels": 210
+    },
+    "planar_mechanical": {
+      "libraries": [
+        "libplm"
+      ],
+      "common_icons": [
+        "dynamic_2D_belt",
+        "dynamic_plmrecTjuntion",
+        "plmcalcul",
+        "plmcontcircles",
+        "plmcontcont",
+        "plmcontmulticircles",
+        "plmdoubleroller_conv",
+        "plmdoublerollermerge_conv",
+        "plmdoubleweb_conv",
+        "plmendrope",
+        "plmgear0",
+        "plmpilotedpivot",
+        "plmpilotedpivottrans",
+        "plmpilotedtranslation",
+        "plmpivot",
+        "plmpivottrans",
+        "plmpostracker_conv",
+        "plmpostrackerout_conv",
+        "plmrecpilotedpivot",
+        "plmrecpilotedprismatic",
+        "plmrotdancer_conv",
+        "plmsheave0",
+        "plmsheave02",
+        "plmtranslation",
+        "plmtransldancer_conv",
+        "plmtripleweb_conv",
+        "plmview3d",
+        "plmweb_conv",
+        "plmweb_conv_th",
+        "plmwebend_conv"
+      ],
+      "total_submodels": 59
+    },
+    "signal": {
+      "libraries": [
+        "libsig"
+      ],
+      "common_icons": [
+        "asciifofx",
+        "asciifofxy",
+        "asciifofxyz",
+        "busadd",
+        "busget",
+        "chronometer",
+        "cmovingavg",
+        "commandSelector",
+        "comparison",
+        "compsig",
+        "control16",
+        "control18",
+        "cross_product",
+        "ctf",
+        "ctfr",
+        "ctrpos",
+        "ctrspeed",
+        "deadband",
+        "deadband_hysteresis",
+        "discreteconv",
+        "discretetimeinteg",
+        "dmovingavg",
+        "dtf",
+        "dtfr",
+        "dynamic_array_op",
+        "dynamic_ascii",
+        "dynamic_controlled_write",
+        "dynamic_discssp",
+        "dynamic_dmux",
+        "dynamic_dmux2"
+      ],
+      "total_submodels": 100
+    }
+  },
+  "sink": {
+    "air_conditioning": {
+      "libraries": [
+        "libac"
+      ],
+      "common_icons": [
+        "ac_receiver_dryer",
+        "acevapend1",
+        "acevapend2"
+      ],
+      "total_submodels": 5
+    },
+    "aircraft_fuel": {
+      "libraries": [
+        "libacf"
+      ],
+      "common_icons": [
+        "acf2_fluid_prop_sensor",
+        "acf2_penwall",
+        "acf2_pressure_sensor",
+        "acf2_tnk2thhpngm",
+        "acf2_tnkpngm",
+        "acf2_tnkthh",
+        "acf_enthalpy_flow_sensor",
+        "acf_flap_valve",
+        "acf_fluid_height_sensor",
+        "acf_fluid_prop_sensor",
+        "acf_gas_prop_sensor",
+        "acf_gauge",
+        "acf_geometric_plug",
+        "acf_liq_props_sensor",
+        "acf_penwall",
+        "acf_pipe_tank",
+        "acf_pressure_sensor",
+        "acf_simple_tank",
+        "acf_simpletank",
+        "acf_tank",
+        "acf_temperature_sensor",
+        "acf_tnk2thhpn",
+        "acf_tnk2thhpngm_variable",
+        "acf_tnk2thhpngmcv_in",
+        "acf_tnk2thhpngmcv_out",
+        "acf_tnk_fil_variable",
+        "acf_tnkpn",
+        "acf_tnkpngm_float_valve",
+        "acf_tnkpngm_variable",
+        "acf_tnkpngmcv_in"
+      ],
+      "total_submodels": 103
+    },
+    "cooling": {
+      "libraries": [
+        "libcs"
+      ],
+      "common_icons": [
+        "ambient"
+      ],
+      "total_submodels": 1
+    },
+    "engine": {
+      "libraries": [
+        "libeng"
+      ],
+      "common_icons": [
+        "eng_epe"
+      ],
+      "total_submodels": 1
+    },
+    "fuel_cell": {
+      "libraries": [
+        "libfc"
+      ],
+      "common_icons": [
+        "fctank"
+      ],
+      "total_submodels": 2
+    },
+    "filling": {
+      "libraries": [
+        "libfi"
+      ],
+      "common_icons": [
+        "tank01"
+      ],
+      "total_submodels": 1
+    },
+    "thermal_hydraulic": {
+      "libraries": [
+        "libthh"
+      ],
+      "common_icons": [
+        "fmotordrain",
+        "fpumpdrain",
+        "tank01",
+        "tfvariabletank",
+        "thf_dp_sig_ma_recv",
+        "thf_dp_sig_plug",
+        "thf_dp_sig_sl_recv",
+        "vmotordrain",
+        "vpumpdrain"
+      ],
+      "total_submodels": 11
+    },
+    "gas_mixture": {
+      "libraries": [
+        "libgm"
+      ],
+      "common_icons": [
+        "gm_gas_data"
+      ],
+      "total_submodels": 2
+    },
+    "hydraulic": {
+      "libraries": [
+        "libhydr"
+      ],
+      "common_icons": [
+        "fmotordrain",
+        "fpumpdrain",
+        "tank10",
+        "vmotordrain",
+        "vpumpdrain"
+      ],
+      "total_submodels": 5
+    },
+    "planar_mechanical": {
+      "libraries": [
+        "libplm"
+      ],
+      "common_icons": [
+        "digging_force"
+      ],
+      "total_submodels": 1
+    },
+    "pneumatic": {
+      "libraries": [
+        "libpn"
+      ],
+      "common_icons": [
+        "exhaust",
+        "exhaust1",
+        "pn_gas_file"
+      ],
+      "total_submodels": 4
+    },
+    "signal": {
+      "libraries": [
+        "libsig"
+      ],
+      "common_icons": [
+        "dynamic_receiver",
+        "receiver",
+        "signalsink"
+      ],
+      "total_submodels": 3
+    },
+    "thermal": {
+      "libraries": [
+        "libth"
+      ],
+      "common_icons": [
+        "dynamic_th_ma_piloted_muxed_splitter",
+        "tpf_ma_sink"
+      ],
+      "total_submodels": 2
+    },
+    "two_phase_flow": {
+      "libraries": [
+        "libtpf"
+      ],
+      "common_icons": [
+        "tpf_ma_sink"
+      ],
+      "total_submodels": 2
+    }
+  },
+  "source": {
+    "air_conditioning": {
+      "libraries": [
+        "libac"
+      ],
+      "common_icons": [
+        "ac_ma_source_1",
+        "acinfot1in",
+        "acinfot2in"
+      ],
+      "total_submodels": 6
+    },
+    "aircraft_fuel": {
+      "libraries": [
+        "libacf"
+      ],
+      "common_icons": [
+        "acf_ac_atti_accel",
+        "acf_ac_atti_simple",
+        "acf_attitude",
+        "acf_attitude_change",
+        "acf_dmg_source",
+        "acf_dmgm_source",
+        "acf_dml_source",
+        "acf_local_atti",
+        "acf_null_local_atti",
+        "acf_plugtnk",
+        "acf_ql_source",
+        "acf_source_cst_pt_fil",
+        "acf_source_pt_fil",
+        "acf_source_qpt_fil"
+      ],
+      "total_submodels": 18
+    },
+    "mechanical_1d": {
+      "libraries": [
+        "libmec"
+      ],
+      "common_icons": [
+        "ZERO_FORCE_SOURCE",
+        "cam2",
+        "dynamic_mech_mux",
+        "dynamic_rotary_mux",
+        "forcecon",
+        "lever1",
+        "lever2",
+        "lever3",
+        "lever4",
+        "mecpowersource",
+        "pmover01",
+        "rack2",
+        "reducer",
+        "reducerv",
+        "screw_nut",
+        "sheave14",
+        "sheave24",
+        "simple_crank",
+        "winch4",
+        "worm_gear",
+        "worm_gear_2",
+        "zeroforcesource",
+        "zeroforcesource3D",
+        "zeroomegasource",
+        "zerospeedsource",
+        "zerospeedsource3D",
+        "zerotorquesource"
+      ],
+      "total_submodels": 53
+    },
+    "cooling": {
+      "libraries": [
+        "libcs"
+      ],
+      "common_icons": [
+        "condenser",
+        "radiator_temp_source",
+        "radiator_temp_vel_source"
+      ],
+      "total_submodels": 5
+    },
+    "electric": {
+      "libraries": [
+        "libeb"
+      ],
+      "common_icons": [
+        "controlled_currentsource",
+        "controlled_powersource_or_sink",
+        "controlled_voltagesource",
+        "eb_3PhaseControlledUSource",
+        "eb_3PhaseControlledUSourceN",
+        "eb_3PhaseUSource",
+        "eb_3PhaseUSourceN",
+        "eb_BatPackSimple",
+        "eb_SourceI_SP",
+        "eb_ZeroCurrent_SP",
+        "eb_ZeroVoltage_SP",
+        "eb_controlled_powersource",
+        "eb_operational_amplifier_supply",
+        "potential_reference",
+        "zero_current_source"
+      ],
+      "total_submodels": 30
+    },
+    "electrochemistry": {
+      "libraries": [
+        "libec"
+      ],
+      "common_icons": [
+        "ec_plug",
+        "electrolyte"
+      ],
+      "total_submodels": 3
+    },
+    "engine": {
+      "libraries": [
+        "libeng"
+      ],
+      "common_icons": [
+        "dynamic_eng_ch_th",
+        "eng_ch03",
+        "eng_ch07",
+        "eng_ch09",
+        "eng_fixed_yi_source",
+        "eng_flow_y_source",
+        "eng_flowplug",
+        "eng_glbangle_source",
+        "eng_global_source",
+        "eng_heaterfluxtemp",
+        "eng_injector_pulses",
+        "eng_mflow_y_source",
+        "eng_mpressure_y_source",
+        "eng_orifice",
+        "eng_pressure_y_source",
+        "eng_pressureplug",
+        "eng_th_heat_flux_source",
+        "eng_th_temperature_source",
+        "eng_thf_mpressure_source",
+        "eng_thf_pressure_source",
+        "eng_thplug"
+      ],
+      "total_submodels": 32
+    },
+    "fuel_cell": {
+      "libraries": [
+        "libfc"
+      ],
+      "common_icons": [
+        "fc_cst_stoichio_source",
+        "fc_stoichio_source"
+      ],
+      "total_submodels": 2
+    },
+    "filling": {
+      "libraries": [
+        "libfi"
+      ],
+      "common_icons": [
+        "flowsource",
+        "hrannularpipe",
+        "hrbend",
+        "hrbend30",
+        "hrbend45",
+        "hrbend60",
+        "hrbend90",
+        "hrdiffconv",
+        "hrdrill1",
+        "hrdrill2",
+        "hrdrill3",
+        "hrpipeinput1",
+        "hrpipeinput2",
+        "hrpipeinput3",
+        "hrpipeinput4",
+        "hrpipeinput5",
+        "hrrestriction",
+        "hydraulicplug",
+        "pressuresource"
+      ],
+      "total_submodels": 21
+    },
+    "thermal_hydraulic": {
+      "libraries": [
+        "libthh"
+      ],
+      "common_icons": [
+        "flowsource",
+        "hrpipeinput1",
+        "hrpipeinput2",
+        "hrpipeinput3",
+        "hrpipeinput4",
+        "hrpipeinput5",
+        "hydraulicplug",
+        "thf_cfd_cnx",
+        "thf_flow_source",
+        "thf_modulated_flow_source",
+        "thf_modulated_h_and_mflow_source",
+        "thf_modulated_mpt_source",
+        "thf_modulated_mptxx_source",
+        "thf_modulated_pressure_source",
+        "thf_modulated_pt_source",
+        "thf_modulated_ptxx_source",
+        "thf_modulated_qpt_source",
+        "thf_modulated_qptxx_source",
+        "thf_pressure_source",
+        "thf_qvsource"
+      ],
+      "total_submodels": 24
+    },
+    "hydraulic": {
+      "libraries": [
+        "libhydr"
+      ],
+      "common_icons": [
+        "actuator001",
+        "flowsource2",
+        "hydraulicplug",
+        "pressuresource2",
+        "pump13",
+        "tank01",
+        "tank10"
+      ],
+      "total_submodels": 9
+    },
+    "gas_mixture": {
+      "libraries": [
+        "libgm"
+      ],
+      "common_icons": [
+        "gm_dni_msource",
+        "gm_drill3",
+        "gm_flow_source",
+        "gm_morifice",
+        "gm_orifice",
+        "gm_plug",
+        "gm_pressure_source",
+        "gm_qmx_msource",
+        "gm_th_plug",
+        "gm_tmx_msource",
+        "gm_tpx_msource",
+        "gm_tqx_source",
+        "gm_valve_22",
+        "gmpresscontrol02",
+        "gmsv_3pos3port_01",
+        "gmsv_3pos4port_01"
+      ],
+      "total_submodels": 19
+    },
+    "planar_mechanical": {
+      "libraries": [
+        "libplm"
+      ],
+      "common_icons": [
+        "plmforcesource",
+        "plmsource"
+      ],
+      "total_submodels": 2
+    },
+    "pneumatic": {
+      "libraries": [
+        "libpn"
+      ],
+      "common_icons": [
+        "dynamic_pn_chamber_th",
+        "pn_actuator1",
+        "pn_diffconv",
+        "pn_drill3",
+        "pn_morifice",
+        "pn_msource",
+        "pn_msource2",
+        "pn_msource4",
+        "pn_orifice",
+        "pn_plug",
+        "pn_psource4",
+        "pn_source",
+        "pn_source0",
+        "pn_source2",
+        "pn_valve33",
+        "pn_valve34",
+        "pn_valve_22",
+        "pnsv_2pos3port_00",
+        "pnsv_2pos3port_01",
+        "pnsv_2pos3port_02",
+        "pnsv_2pos3port_03",
+        "pnsv_2pos3port_04",
+        "pnsv_2pos3port_05",
+        "pnsv_2pos3port_06",
+        "pnsv_2pos4port_00",
+        "pnsv_2pos4port_01",
+        "pnsv_2pos4port_02",
+        "pnsv_2pos4port_03",
+        "pnsv_2pos4port_04",
+        "pnsv_2pos4port_05"
+      ],
+      "total_submodels": 57
+    },
+    "signal": {
+      "libraries": [
+        "libsig"
+      ],
+      "common_icons": [
+        "bussource",
+        "clock",
+        "control18",
+        "counter",
+        "crossaxis",
+        "dynamic_constant_source",
+        "dynamic_expressions",
+        "dynamic_expressions2",
+        "dynamic_logical",
+        "fofx",
+        "fofxyz",
+        "harmonics",
+        "isIdSelected",
+        "maxmin",
+        "mean",
+        "modulo",
+        "piecewiselinear",
+        "signreverse",
+        "smoothrand",
+        "triggeredsine",
+        "writetofile",
+        "zeroinput!"
+      ],
+      "total_submodels": 25
+    },
+    "thermal": {
+      "libraries": [
+        "libth"
+      ],
+      "common_icons": [
+        "th_conv_cylinder_enclosure",
+        "th_conv_enclosure",
+        "th_heat_flow_source",
+        "th_ma_simple_source",
+        "th_ma_source2",
+        "th_ma_zero_source",
+        "th_solid_data",
+        "tpf_ma_source"
+      ],
+      "total_submodels": 8
+    },
+    "two_phase_flow": {
+      "libraries": [
+        "libtpf"
+      ],
+      "common_icons": [
+        "th_ma_simple_source",
+        "th_ma_zero_source",
+        "tpf_bao4",
+        "tpf_bao7",
+        "tpf_bao8",
+        "tpf_bap2",
+        "tpf_chamber_heat",
+        "tpf_const_dmh_source",
+        "tpf_ma_source",
+        "tpf_modulated_chamber_heat",
+        "tpf_modulated_dmh_source",
+        "tpf_modulated_flow_source",
+        "tpf_obc_mp",
+        "tpf_ph_const_source",
+        "tpf_ph_const_source_obsolete",
+        "tpf_ph_modulated_source",
+        "tpf_ph_modulated_source_obsolete",
+        "tpf_phase_separator",
+        "tpf_pipe_inlet",
+        "tpf_sink",
+        "tpf_st_chamber",
+        "tpf_tank"
+      ],
+      "total_submodels": 29
+    }
+  },
+  "junction": {
+    "air_conditioning": {
+      "libraries": [
+        "libac"
+      ],
+      "common_icons": [
+        "mamixers1",
+        "mamixers2"
+      ],
+      "total_submodels": 4
+    },
+    "mechanical_1d": {
+      "libraries": [
+        "libmec"
+      ],
+      "common_icons": [
+        "dynamic_mech_node",
+        "dynamic_mechanical_node_alternative",
+        "dynamic_rotary_node",
+        "dynamic_rotary_node_with_angle",
+        "lconnector",
+        "rconnector",
+        "rope4"
+      ],
+      "total_submodels": 26
+    },
+    "electric": {
+      "libraries": [
+        "libeb"
+      ],
+      "common_icons": [
+        "2_ports_electrical_node",
+        "3SRLN",
+        "3SRLN_controlled",
+        "3_ports_electrical_node",
+        "4_ports_electrical_node",
+        "dynamic_elec_node",
+        "dynamic_voltage_divider",
+        "eb_double_2_ports_electrical_node",
+        "eb_variablevoltagedivider",
+        "eb_variablevoltagedivider_with_thermalport",
+        "eb_voltagedivider",
+        "eb_voltagedivider_with_thermalport"
+      ],
+      "total_submodels": 28
+    },
+    "electrochemistry": {
+      "libraries": [
+        "libec"
+      ],
+      "common_icons": [
+        "ec_node3",
+        "ec_node4"
+      ],
+      "total_submodels": 7
+    },
+    "engine": {
+      "libraries": [
+        "libeng"
+      ],
+      "common_icons": [
+        "eng12_connect_pipe",
+        "eng_multiinj",
+        "eng_node3",
+        "eng_node3_cfm",
+        "eng_tjunc",
+        "eng_valve_junc"
+      ],
+      "total_submodels": 9
+    },
+    "filling": {
+      "libraries": [
+        "libfi"
+      ],
+      "common_icons": [
+        "hrtee45",
+        "hrtee90",
+        "hrteehole",
+        "hydrnode2"
+      ],
+      "total_submodels": 5
+    },
+    "thermal_hydraulic": {
+      "libraries": [
+        "libthh"
+      ],
+      "common_icons": [
+        "hrtee2p90",
+        "hrtee45",
+        "hrtee90",
+        "hrteehole",
+        "hydrnode2",
+        "hydrnode2b",
+        "hydrnode3",
+        "hydrnode4",
+        "thnode",
+        "thnode_r"
+      ],
+      "total_submodels": 40
+    },
+    "hydraulic": {
+      "libraries": [
+        "libhydr"
+      ],
+      "common_icons": [
+        "JUN1D0D_2p_1p",
+        "hydrnode2",
+        "hydrnode2b",
+        "hydrnode3",
+        "hydrnode4"
+      ],
+      "total_submodels": 15
+    },
+    "gas_mixture": {
+      "libraries": [
+        "libgm"
+      ],
+      "common_icons": [
+        "gm_node3",
+        "gm_node4",
+        "gm_nodegm2pn",
+        "gm_nodepn2gm",
+        "gm_tee45"
+      ],
+      "total_submodels": 17
+    },
+    "planar_mechanical": {
+      "libraries": [
+        "libplm"
+      ],
+      "common_icons": [
+        "plmto1d01"
+      ],
+      "total_submodels": 2
+    },
+    "pneumatic": {
+      "libraries": [
+        "libpn"
+      ],
+      "common_icons": [
+        "dTjuncdt",
+        "pn_node2",
+        "pn_node3",
+        "pn_nodeconv",
+        "pnnode",
+        "pnnode4",
+        "tp_cvnode",
+        "tp_tee45",
+        "tp_tee90"
+      ],
+      "total_submodels": 32
+    },
+    "signal": {
+      "libraries": [
+        "libsig"
+      ],
+      "common_icons": [
+        "division",
+        "dynamic_gen_addition",
+        "dynamic_substracting_junction",
+        "dynamic_summing_junction",
+        "multiplication",
+        "splitter2p2",
+        "splitter3p",
+        "subtraction",
+        "sum"
+      ],
+      "total_submodels": 9
+    },
+    "thermal": {
+      "libraries": [
+        "libth"
+      ],
+      "common_icons": [
+        "dynamic_th_ma_mixer",
+        "dynamic_th_ma_splitter",
+        "th_four_ports_thermal_node",
+        "th_three_ports_thermal_node",
+        "tpf_ma_mixer",
+        "tpf_ma_splitter"
+      ],
+      "total_submodels": 12
+    },
+    "two_phase_flow": {
+      "libraries": [
+        "libtpf"
+      ],
+      "common_icons": [
+        "tpf_2pnode",
+        "tpf_3pnode",
+        "tpf_4pnode",
+        "tpf_ma_mixer",
+        "tpf_ma_splitter"
+      ],
+      "total_submodels": 14
+    }
+  },
+  "sensor": {
+    "mechanical_1d": {
+      "libraries": [
+        "libmec"
+      ],
+      "common_icons": [
+        "accelerationsensor",
+        "accelerationsensor2",
+        "anglesensor",
+        "anglesensor2",
+        "angularaccelerationsensor",
+        "angularaccelerationsensor2",
+        "displacementsensor",
+        "displacementsensor2",
+        "forcesensor",
+        "forcesensor2",
+        "powersensor_linear",
+        "powersensor_rotary",
+        "rotaryspeedsensor",
+        "rotaryspeedsensor2",
+        "torquesensor",
+        "torquesensor2",
+        "velocitysensor",
+        "velocitysensor2"
+      ],
+      "total_submodels": 90
+    },
+    "electric": {
+      "libraries": [
+        "libeb"
+      ],
+      "common_icons": [
+        "current_transducer",
+        "eb_3PhaseISensor",
+        "eb_3PhasePSensor",
+        "eb_3PhaseUSensor",
+        "eb_ISensor_SP",
+        "eb_PSensor_SP",
+        "eb_RFSensor_SP",
+        "eb_VSensor_SP",
+        "powersensor_elect",
+        "voltage_transducer"
+      ],
+      "total_submodels": 24
+    },
+    "electrochemistry": {
+      "libraries": [
+        "libec"
+      ],
+      "common_icons": [
+        "ec_current_transducer",
+        "ec_voltage_transducer",
+        "powersensor_electroch"
+      ],
+      "total_submodels": 6
+    },
+    "engine": {
+      "libraries": [
+        "libeng"
+      ],
+      "common_icons": [
+        "eng_bgrsensor",
+        "eng_lambdasensor",
+        "eng_molsensor",
+        "eng_mpressure_sensor",
+        "eng_noisesensor",
+        "eng_noisesensor2",
+        "eng_pressuresensor",
+        "eng_sensorlag",
+        "eng_temperaturesensor",
+        "eng_thermocouple",
+        "powersensor_pflow"
+      ],
+      "total_submodels": 40
+    },
+    "gas_mixture": {
+      "libraries": [
+        "libgm"
+      ],
+      "common_icons": [
+        "gm_anysensor",
+        "gm_csensor",
+        "gm_dnisensor",
+        "gm_machsensor",
+        "gm_pisensor",
+        "gm_psensor",
+        "gm_pstsensor",
+        "gm_qsensor",
+        "gm_qvolsensor",
+        "gm_tsensor",
+        "gm_xsensor",
+        "powersensor_pflow"
+      ],
+      "total_submodels": 28
+    },
+    "pneumatic": {
+      "libraries": [
+        "libpn"
+      ],
+      "common_icons": [
+        "pn_machsensor",
+        "pn_psensor",
+        "pn_pstsensor",
+        "pn_tsensor",
+        "powersensor_pflow"
+      ],
+      "total_submodels": 18
+    },
+    "filling": {
+      "libraries": [
+        "libfi"
+      ],
+      "common_icons": [
+        "pressuresensor"
+      ],
+      "total_submodels": 2
+    },
+    "hydraulic": {
+      "libraries": [
+        "libhydr"
+      ],
+      "common_icons": [
+        "flowratesensor",
+        "powersensor_hflow",
+        "pressuregauge",
+        "pressuresensor",
+        "pressuresensora"
+      ],
+      "total_submodels": 8
+    },
+    "thermal_hydraulic": {
+      "libraries": [
+        "libthh"
+      ],
+      "common_icons": [
+        "flowratesensor",
+        "hrpsensor",
+        "powersensor_hflow",
+        "pressuregauge",
+        "pressuresensor",
+        "pressuresensora",
+        "thf_enthalpy_flow_rate_sensor",
+        "thf_temperature_sensor"
+      ],
+      "total_submodels": 22
+    },
+    "two_phase_flow": {
+      "libraries": [
+        "libtpf"
+      ],
+      "common_icons": [
+        "powersensor_hflow",
+        "powersensor_pflow_ma",
+        "th_ma_flow_sensor",
+        "tpf_dp_sensor",
+        "tpf_dtss_sensor",
+        "tpf_generic_sensor",
+        "tpf_generic_sensor_extra",
+        "tpf_ma_sensor",
+        "tpf_temperature_sensor",
+        "tpf_x_sensor"
+      ],
+      "total_submodels": 18
+    },
+    "planar_mechanical": {
+      "libraries": [
+        "libplm"
+      ],
+      "common_icons": [
+        "plmaccelerationsensor",
+        "plmdisplacementsensor",
+        "plmforcesensor",
+        "plmforcesensor_conv",
+        "plmpowersensor",
+        "plmradiussensor_conv",
+        "plmropeforcesensor",
+        "plmropepositionsensor",
+        "plmropevelocitysensor",
+        "plmvelocitysensor",
+        "plmvelocitysensor_conv"
+      ],
+      "total_submodels": 30
+    },
+    "thermal": {
+      "libraries": [
+        "libth"
+      ],
+      "common_icons": [
+        "powersensor_pflow_ma",
+        "powersensor_thermal",
+        "temperaturesensor",
+        "th_ma_flow_sensor",
+        "th_ma_hmcmft",
+        "th_solar_radiation_sensor",
+        "tpf_ma_sensor"
+      ],
+      "total_submodels": 8
+    }
+  },
+  "control": {
+    "mechanical_1d": {
+      "libraries": [
+        "libmec"
+      ],
+      "common_icons": [
+        "1part_rot_friction_new",
+        "2parts_rot_friction_new",
+        "dyn_friction",
+        "linear2signal1",
+        "linear2signal2",
+        "linear2signal3",
+        "linear2signal4",
+        "linearvcon",
+        "linearvxcon",
+        "linearxvfromvcon",
+        "linearxvfromxcon",
+        "omegacon",
+        "omegacon2",
+        "omegathetacon",
+        "relative_dyn_friction",
+        "rotary2signal1",
+        "rotary2signal2",
+        "rotary2signal3",
+        "rotary2signal4",
+        "solenoid",
+        "thetacon2",
+        "torquecon"
+      ],
+      "total_submodels": 32
+    },
+    "cooling": {
+      "libraries": [
+        "libcs"
+      ],
+      "common_icons": [
+        "cs_oil_fm"
+      ],
+      "total_submodels": 2
+    },
+    "electric": {
+      "libraries": [
+        "libeb"
+      ],
+      "common_icons": [
+        "2way_switch",
+        "eb_TableMachineSimple",
+        "elec2signal1",
+        "elec2signal2",
+        "switch"
+      ],
+      "total_submodels": 13
+    },
+    "engine": {
+      "libraries": [
+        "libeng"
+      ],
+      "common_icons": [
+        "eng_combustion_CFM",
+        "eng_glob_var",
+        "eng_injector",
+        "eng_injector_pulses",
+        "eng_injector_simple",
+        "eng_mvem"
+      ],
+      "total_submodels": 14
+    },
+    "fuel_cell": {
+      "libraries": [
+        "libfc"
+      ],
+      "common_icons": [
+        "fccondenser2",
+        "fchumidifier2",
+        "fcsocstack_signal_ports",
+        "fcstack",
+        "fcstack2_signal_port_cathode",
+        "fcstacknD_signal_port"
+      ],
+      "total_submodels": 15
+    },
+    "filling": {
+      "libraries": [
+        "libfi"
+      ],
+      "common_icons": [
+        "pressurecon"
+      ],
+      "total_submodels": 1
+    },
+    "hydraulic": {
+      "libraries": [
+        "libhydr"
+      ],
+      "common_icons": [
+        "drophydraulicprops",
+        "hydraulic2signal1",
+        "hydraulic2signal2",
+        "pressurecon"
+      ],
+      "total_submodels": 6
+    },
+    "gas_mixture": {
+      "libraries": [
+        "libgm"
+      ],
+      "common_icons": [
+        "gm_exchanger",
+        "gm_expcont",
+        "gm_sig_constants",
+        "gmpresscontrol02"
+      ],
+      "total_submodels": 4
+    },
+    "planar_mechanical": {
+      "libraries": [
+        "libplm"
+      ],
+      "common_icons": [
+        "plmwebsplice_conv"
+      ],
+      "total_submodels": 1
+    },
+    "pneumatic": {
+      "libraries": [
+        "libpn"
+      ],
+      "common_icons": [
+        "pn_diffconv",
+        "pn_regulator",
+        "tp_expcont2"
+      ],
+      "total_submodels": 6
+    },
+    "signal": {
+      "libraries": [
+        "libsig"
+      ],
+      "common_icons": [
+        "asciifofx",
+        "butterworthfilter",
+        "chebyshevfilter",
+        "chirp",
+        "constant",
+        "continousdelay",
+        "differentiator",
+        "disc_transf_fct",
+        "discrete_int_trigger",
+        "discretedelay",
+        "discretediff",
+        "discretepid",
+        "discretetimeinteg",
+        "dynamic_differentiator",
+        "dynamic_extern_excutable",
+        "dynamic_extractor",
+        "dynamic_gain",
+        "dynamic_integrator",
+        "dynamic_muxredirect",
+        "dynamic_switch",
+        "dynamic_time_table",
+        "dynamic_transferfunction",
+        "dynamic_x_table",
+        "epid",
+        "fofxy",
+        "fofxyz",
+        "gain",
+        "generaltransferfct",
+        "integrator",
+        "integric"
+      ],
+      "total_submodels": 76
+    },
+    "thermal": {
+      "libraries": [
+        "libth"
+      ],
+      "common_icons": [
+        "dynamic_th_functional_refrigerant_cycle",
+        "dynamic_th_functional_refrigerant_cycle_reversible",
+        "th2signal1",
+        "th2signal2",
+        "th_functional_refrigerant_cycle",
+        "th_functional_refrigerant_cycle_reversible",
+        "th_solid_properties_with_signal_output"
+      ],
+      "total_submodels": 8
+    },
+    "thermal_hydraulic": {
+      "libraries": [
+        "libthh"
+      ],
+      "common_icons": [
+        "thf_dp_sig_ma_send",
+        "thf_dp_sig_plug",
+        "thf_dp_sig_sl_send",
+        "thh2signal0",
+        "thh2signal1"
+      ],
+      "total_submodels": 6
+    },
+    "two_phase_flow": {
+      "libraries": [
+        "libtpf"
+      ],
+      "common_icons": [
+        "tpf_2sig0",
+        "tpf_2sig1"
+      ],
+      "total_submodels": 2
+    }
+  },
+  "actuator": {
+    "cooling": {
+      "libraries": [
+        "libcs"
+      ],
+      "common_icons": [
+        "cs_cooler_fm",
+        "dynamic_cs_cooler_fm",
+        "heater_component",
+        "immersionheater1"
+      ],
+      "total_submodels": 9
+    },
+    "electric": {
+      "libraries": [
+        "libeb"
+      ],
+      "common_icons": [
+        "transformer"
+      ],
+      "total_submodels": 4
+    },
+    "engine": {
+      "libraries": [
+        "libeng"
+      ],
+      "common_icons": [
+        "appGeometry2",
+        "eng_crankshaft_multiplicator",
+        "eng_cylinder_multiplicator",
+        "eng_halfheater",
+        "eng_halfheater3",
+        "eng_halfheater4",
+        "eng_halfheater_glbang",
+        "eng_heaterflux1",
+        "eng_heaterflux2",
+        "eng_torque_multiplicator",
+        "ice_combustion_tool"
+      ],
+      "total_submodels": 18
+    },
+    "gas_mixture": {
+      "libraries": [
+        "libgm"
+      ],
+      "common_icons": [
+        "gm_fan",
+        "gm_piston"
+      ],
+      "total_submodels": 3
+    },
+    "thermal_hydraulic": {
+      "libraries": [
+        "libthh"
+      ],
+      "common_icons": [
+        "actuator001",
+        "actuator002",
+        "actuator004",
+        "control_piston",
+        "control_piston_2p",
+        "control_piston_2p_tl",
+        "control_piston_tl",
+        "halfheater",
+        "halfheater1",
+        "halfheaterbis",
+        "heaterflux3",
+        "heaterflux4"
+      ],
+      "total_submodels": 21
+    },
+    "hydraulic": {
+      "libraries": [
+        "libhydr"
+      ],
+      "common_icons": [
+        "control_piston",
+        "control_piston_2p",
+        "control_piston_2p_tl",
+        "control_piston_tl",
+        "rotaryactuator"
+      ],
+      "total_submodels": 5
+    },
+    "mechanical_1d": {
+      "libraries": [
+        "libmec"
+      ],
+      "common_icons": [
+        "rottorotmtf",
+        "rottorotthetamtf",
+        "rottotransmtf",
+        "rottotransthetamtf",
+        "transtotransdisplmtf",
+        "transtotransmtf"
+      ],
+      "total_submodels": 17
+    },
+    "planar_mechanical": {
+      "libraries": [
+        "libplm"
+      ],
+      "common_icons": [
+        "plmjack",
+        "plmto1drel"
+      ],
+      "total_submodels": 2
+    },
+    "pneumatic": {
+      "libraries": [
+        "libpn"
+      ],
+      "common_icons": [
+        "halfheaterthpn1",
+        "halfheaterthpn2",
+        "halfheaterthpn2bis",
+        "heaterflux3",
+        "heaterflux4",
+        "pn_actuator1",
+        "pn_actuator2",
+        "pn_fan"
+      ],
+      "total_submodels": 17
+    },
+    "thermal": {
+      "libraries": [
+        "libth"
+      ],
+      "common_icons": [
+        "heaterflux3",
+        "heaterflux4",
+        "heaterflux4bis",
+        "th_halfheater",
+        "th_heat_flow_converter",
+        "th_temperature_converter"
+      ],
+      "total_submodels": 10
+    },
+    "two_phase_flow": {
+      "libraries": [
+        "libtpf"
+      ],
+      "common_icons": [
+        "tpf_halfheater",
+        "tpf_transformer"
+      ],
+      "total_submodels": 2
+    }
+  }
+}
