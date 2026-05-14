@@ -315,7 +315,7 @@ test('pipeline imports + state')
 try:
     from amesim_multi_agent.tri_agent.pipeline import (
         TriAgentPipeline, PipelineState,
-        MAX_VALIDATION_ITERATIONS, MAX_BUILD_ATTEMPTS, MAX_EXPANSION_LAYERS,
+        MAX_VALIDATION_ITERATIONS, MAX_EXPANSION_LAYERS,
     )
     ps = PipelineState(user_request='test', skip_review=True)
     assert ps.topology_graph is None
@@ -323,7 +323,6 @@ try:
     ps.topology_graph = TopologyGraph(model_name='T', nodes=[TopologyNode(node_id='n1')])
     assert ps.is_topology_ready == True
     assert MAX_VALIDATION_ITERATIONS == 3
-    assert MAX_BUILD_ATTEMPTS == 3
     assert MAX_EXPANSION_LAYERS == 4
     ok()
 except Exception as e:
