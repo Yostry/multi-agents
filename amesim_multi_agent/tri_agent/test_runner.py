@@ -153,10 +153,10 @@ def main():
         build_ok = result.get("build_result", {}).get("status") == "success"
         sim_ok = result.get("simulation_results", {}).get("status") != "failed"
         if build_ok and (args.build_only or sim_ok):
-            print(f"\n✓ Parameter-Runner test PASSED")
+            print(f"\n[OK]Parameter-Runner test PASSED")
             sys.exit(0)
 
-    print(f"\n✗ Parameter-Runner test FAILED")
+    print(f"\n[FAIL] Parameter-Runner test FAILED")
     sys.exit(1)
 
 

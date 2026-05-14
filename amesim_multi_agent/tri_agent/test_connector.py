@@ -187,7 +187,7 @@ def main():
     if args.phase1 or args.full:
         result = asyncio.run(run_connector_phase1_test(graph, args.output))
         if result:
-            print(f"\n✓ Connector Phase 1 PASSED")
+            print(f"\n[OK]Connector Phase 1 PASSED")
             # Save for Phase 2
             with open("_phase1_result.json", "w", encoding="utf-8") as f:
                 json.dump(result, f, ensure_ascii=False, indent=2)
@@ -210,7 +210,7 @@ def main():
 
         result = asyncio.run(run_connector_phase2_test(graph, phase1, args.output))
         if result:
-            print(f"\n✓ Connector Phase 2 PASSED")
+            print(f"\n[OK]Connector Phase 2 PASSED")
 
     if not (args.phase1 or args.phase2 or args.full):
         parser.print_help()

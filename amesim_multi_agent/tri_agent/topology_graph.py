@@ -130,8 +130,8 @@ class Subsystem:
     subsys_id: str                             # 如 "sub_h2_supply"
     name: str                                  # 如 "Hydrogen_Supply"
     domain: str = ""                           # 主导物理域
-    nodes: list[TopologyNode] = field(default_factory=list)
-    edges: list[TopologyEdge] = field(default_factory=list)
+    nodes: list = field(default_factory=list)  # list[str|TopologyNode] — 可以是 node_id 字符串或 TopologyNode 对象
+    edges: list = field(default_factory=list)  # list[str|TopologyEdge]
     interfaces: list[dict] = field(default_factory=list)  # 对外接口端口
 
     def to_dict(self) -> dict:
@@ -139,8 +139,14 @@ class Subsystem:
             "subsys_id": self.subsys_id,
             "name": self.name,
             "domain": self.domain,
-            "nodes": [n.to_dict() for n in self.nodes],
-            "edges": [e.to_dict() for e in self.edges],
+            "nodes": [
+                n.to_dict() if isinstance(n, TopologyNode) else n
+                for n in self.nodes
+            ],
+            "edges": [
+                e.to_dict() if isinstance(e, TopologyEdge) else e
+                for e in self.edges
+            ],
             "interfaces": self.interfaces,
         }
 

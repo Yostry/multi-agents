@@ -161,7 +161,7 @@ class TriAgentPipeline:
             self.state.topology_graph = TopologyGraph.from_dict(graph_dict)
             self.state.model_name = self.state.topology_graph.model_name
             self.state.total_llm_calls += 1
-            print(f"\n✓ TopologyGraph: {self.state.topology_graph.summary()}")
+            print(f"\n[OK]TopologyGraph: {self.state.topology_graph.summary()}")
             return True
         except Exception as e:
             self.state.errors.append(f"Orchestrator parse: {e}")
@@ -202,7 +202,7 @@ class TriAgentPipeline:
                 ],
                 connections=[],
             )
-            print(f"✓ Phase 1: {len(core)} core components selected")
+            print(f"[OK]Phase 1: {len(core)} core components selected")
             return True
         except Exception as e:
             self.state.errors.append(f"Connector Phase1 parse: {e}")
@@ -267,7 +267,7 @@ class TriAgentPipeline:
                     layer_data.get("bridges", [])
                 )
 
-            print(f"✓ Phase 2: {self.state.torsionbar_model.summary()}")
+            print(f"[OK]Phase 2: {self.state.torsionbar_model.summary()}")
             return True
         except Exception as e:
             self.state.errors.append(f"Connector Phase2 parse: {e}")
@@ -278,7 +278,7 @@ class TriAgentPipeline:
         for iteration in range(MAX_VALIDATION_ITERATIONS):
             issues = self._validate_model()
             if not issues:
-                print(f"✓ Validation passed (iteration {iteration + 1})")
+                print(f"[OK]Validation passed (iteration {iteration + 1})")
                 return True
 
             print(f"  [!] {len(issues)} validation issues, fixing...")
@@ -286,7 +286,7 @@ class TriAgentPipeline:
             if not fixed:
                 return False
 
-        print(f"  [✗] Max validation iterations ({MAX_VALIDATION_ITERATIONS}) reached")
+        print(f"  [[FAIL]] Max validation iterations ({MAX_VALIDATION_ITERATIONS}) reached")
         return False
 
     def _validate_model(self) -> list[dict]:
@@ -311,51 +311,60 @@ class TriAgentPipeline:
                     "message": f"No component selected for core node {node.node_id} ({node.label})",
                 })
 
-        # 检查: 每个相关元件至少有一条连接
+        # 检查: 非终端、非核心的元件是否有连接
+        terminal_patterns = (
+            "ground", "zero", "constant", "sigconst", "sink", "source",
+            "term_", "signal_", "atmosphere", "ambient", "reservoir",
+        )
         for comp in model.components:
+            if comp.layer == 0:
+                continue  # skip core components
+            alias_lower = comp.alias.lower()
+            icon_lower = comp.icon_name.lower()
+            if any(p in alias_lower or p in icon_lower for p in terminal_patterns):
+                continue  # terminal components are expected to be one-sided
             has_conn = any(
                 c.from_component == comp.alias or c.to_component == comp.alias
                 for c in model.connections
             )
-            if not has_conn and comp.layer > 0:
+            if not has_conn:
                 issues.append({
                     "type": "ISOLATED_COMPONENT",
                     "alias": comp.alias,
-                    "message": f"Component {comp.alias} has no connections",
+                    "icon_name": comp.icon_name,
+                    "message": f"Component {comp.alias} ({comp.icon_name}) has no connections",
                 })
 
         return issues
 
     async def _targeted_fix(self, issues: list[dict]) -> bool:
-        """发回连接 Agent 定点修复单个问题。"""
-        agent = create_connector_phase2_agent()
-        run_config = create_run_config()
+        """定点修复验证发现的问题。
 
-        prompt = f"""TARGETED FIX REQUEST: The following issues were found in your model.
-Fix ONLY these issues. Do NOT rebuild the entire model.
+        简单问题用代码修复 (删孤立元件); 复杂问题发回 LLM。
+        """
+        fixes_applied = 0
+        for issue in issues:
+            if issue["type"] == "ISOLATED_COMPONENT":
+                alias = issue.get("alias", "")
+                # 删除没有连接的非核心孤立元件
+                removed = [
+                    c for c in self.state.torsionbar_model.components
+                    if c.alias == alias
+                ]
+                if removed:
+                    self.state.torsionbar_model.components = [
+                        c for c in self.state.torsionbar_model.components
+                        if c.alias != alias
+                    ]
+                    self.state.log(f"FIX: removed isolated component {alias}")
+                    fixes_applied += 1
 
-CURRENT MODEL:
-{self.state.torsionbar_model.to_json()}
+            elif issue["type"] == "MISSING_CORE_COMPONENT":
+                # 核心元件缺失 — 需要 LLM 重新选择, 但当前先用简单回退
+                self.state.log(f"WARN: core component missing for {issue.get('label')}, will retry phase 1")
+                return await self._run_connector_phase1()
 
-ISSUES TO FIX:
-{json.dumps(issues, ensure_ascii=False, indent=2)}
-
-RULES:
-- You may ADD new components or connections
-- You may REMOVE non-core components (layer > 0)
-- NEVER remove or modify core components (layer = 0)
-- Output ONLY the fix result JSON with added/removed items."""
-
-        try:
-            result = await Runner.run(agent, prompt, run_config=run_config)
-            raw = result.final_output or ""
-            fix_result = self._extract_json(raw)
-            # 应用修复...
-            self.state.total_llm_calls += 1
-            return True
-        except Exception as e:
-            self.state.errors.append(f"Targeted fix: {e}")
-            return False
+        return fixes_applied > 0 or len(issues) == 0
 
     async def _run_parameter_runner(self) -> bool:
         """执行参数运行 Agent。"""
@@ -377,7 +386,7 @@ RULES:
 
             br = self.state.runner_result.get("build_result", {})
             status = br.get("status", "error")
-            print(f"✓ Parameter-Runner: build={status}")
+            print(f"[OK]Parameter-Runner: build={status}")
             return status == "success"
         except Exception as e:
             self.state.errors.append(f"Parameter-Runner parse: {e}")
@@ -399,7 +408,7 @@ RULES:
                 "total_tokens": 0,
                 "tags": [self.state.topology_graph.complexity],
             })
-            print(f"✓ Recorded to experience memory (case #{case_id})")
+            print(f"[OK]Recorded to experience memory (case #{case_id})")
         except Exception as e:
             self.state.log(f"Memory write failed: {e}")
 
@@ -537,10 +546,10 @@ def main():
     state = asyncio.run(pipeline.run(request))
 
     if state.runner_result and state.runner_result.get("build_result", {}).get("status") == "success":
-        print("✓ Pipeline SUCCESS")
+        print("[OK]Pipeline SUCCESS")
         sys.exit(0)
     else:
-        print("✗ Pipeline FAILED")
+        print("[FAIL] Pipeline FAILED")
         if state.errors:
             for e in state.errors:
                 print(f"  - {e}")

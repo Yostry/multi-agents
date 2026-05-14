@@ -246,10 +246,10 @@ def main():
     )
 
     if graph:
-        print(f"\n✓ Orchestrator test PASSED: {len(graph.nodes)} nodes, {len(graph.edges)} edges")
+        print(f"\n[OK] Orchestrator test PASSED: {len(graph.nodes)} nodes, {len(graph.edges)} edges")
         sys.exit(0)
     else:
-        print(f"\n✗ Orchestrator test FAILED")
+        print(f"\n[FAIL] Orchestrator test FAILED")
         sys.exit(1)
 
 
