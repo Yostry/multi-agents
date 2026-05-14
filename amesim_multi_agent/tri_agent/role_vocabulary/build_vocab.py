@@ -50,7 +50,7 @@ DOMAIN_LIB_MAP = {
 ROLE_KEYWORD_MAP = {
     "source": [
         "source", "supply", "generator", "driver", "input",
-        "constant", "prescribed", "imposed",
+        "prescribed", "imposed",
     ],
     "sink": [
         "sink", "atmosphere", "ambient", "ground", "drain", "exhaust",
@@ -64,7 +64,6 @@ ROLE_KEYWORD_MAP = {
         "pipe", "orifice", "valve", "restrictor", "conduit", "duct",
         "heat_exchanger", "conduction", "convection", "radiator",
         "spring", "damper", "link", "gear", "belt", "wire",
-        "pump", "compressor", "turbine", "motor",
     ],
     "sensor": [
         "sensor", "transducer", "probe", "gauge",
