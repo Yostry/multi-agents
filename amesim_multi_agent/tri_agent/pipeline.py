@@ -14,6 +14,7 @@ from __future__ import annotations
 import asyncio
 import json
 import os
+import subprocess
 import sys
 from dataclasses import dataclass, field
 
@@ -107,6 +108,8 @@ class TriAgentPipeline:
 
         if not self._build_model_code():
             return self.state
+
+        self._generate_preview()
 
         self._print_final_summary()
         return self.state
@@ -433,6 +436,48 @@ class TriAgentPipeline:
         except (EOFError, KeyboardInterrupt):
             return False
 
+    def _generate_preview(self):
+        """调用 AMEPreview.exe 生成模型拓扑预览图。
+
+        需要有效的 .ame 文件。若 build mode 为 manual (仅生成脚本),
+        .ame 文件尚未生成, 则跳过预览。
+        """
+        ame_root = os.environ.get("AME", "D:/AMESIM24/Amesim")
+        preview_exe = os.path.join(ame_root, "win64", "AMEPreview.exe")
+
+        if not os.path.exists(preview_exe):
+            self.state.log("AMEPreview.exe not found, skipping preview")
+            return
+
+        # 查找 .ame 文件
+        ame_dir = os.path.join(os.path.dirname(__file__), "..", "..", "..",
+                               "ame_models", self.state.model_name)
+        ame_path = os.path.join(ame_dir, f"{self.state.model_name}.ame")
+
+        if not os.path.exists(ame_path):
+            self.state.log(f"No .ame file yet, skipping preview. "
+                           f"Run build script with AMEPython.exe to generate it.")
+            return
+
+        preview_path = os.path.join(ame_dir, f"{self.state.model_name}_preview.png")
+
+        try:
+            result = subprocess.run(
+                [preview_exe, ame_path, preview_path],
+                capture_output=True, text=True, timeout=30,
+            )
+            if result.returncode == 0 and os.path.exists(preview_path):
+                size_kb = os.path.getsize(preview_path) / 1024
+                print(f"  Preview: {preview_path} ({size_kb:.0f} KB)")
+                self.state.runner_result = self.state.runner_result or {}
+                self.state.runner_result["preview_path"] = preview_path
+            else:
+                self.state.log(f"Preview failed: {result.stderr.strip()}")
+        except subprocess.TimeoutExpired:
+            self.state.log("Preview generation timed out")
+        except Exception as e:
+            self.state.log(f"Preview error: {e}")
+
     def _print_final_summary(self):
         m = self.state.torsionbar_model
         g = self.state.topology_graph
@@ -441,6 +486,8 @@ class TriAgentPipeline:
         print(f"  Model: {self.state.model_name}")
         print(f"  Nodes: {len(g.nodes)} | Components: {len(m.components)} | Connections: {len(m.connections)}")
         print(f"  LLM calls: {self.state.total_llm_calls}")
+        if self.state.runner_result and self.state.runner_result.get("preview_path"):
+            print(f"  Preview: {self.state.runner_result['preview_path']}")
         if self.state.errors:
             print(f"  Errors: {len(self.state.errors)}")
             for e in self.state.errors:
