@@ -62,6 +62,7 @@ class PipelineState:
     errors: list[str] = field(default_factory=list)
     skip_review: bool = False
     verbose: bool = False
+    auto_build: bool = False  # True=AMEPython自动构建, False=仅生成脚本
 
     @property
     def is_topology_ready(self) -> bool:
@@ -78,8 +79,8 @@ class PipelineState:
 
 class TriAgentPipeline:
 
-    def __init__(self, skip_review=False, verbose=False, experience_db_path=""):
-        self.state = PipelineState(skip_review=skip_review, verbose=verbose)
+    def __init__(self, skip_review=False, verbose=False, auto_build=False, experience_db_path=""):
+        self.state = PipelineState(skip_review=skip_review, verbose=verbose, auto_build=auto_build)
         self.memory = None
         if experience_db_path:
             self.memory = ExperienceMemory(experience_db_path)
@@ -386,12 +387,13 @@ class TriAgentPipeline:
 
         try:
             from ..agents.builder import build_model_direct
+            build_mode = "auto" if self.state.auto_build else "manual"
             result = json.loads(build_model_direct(
                 model_name=model.model_name, components=spec_components,
                 connections=spec_connections,
                 parameters=model.non_default_params or {},
                 bridge_components=model.bridge_components,
-                mode="manual"))
+                mode=build_mode))
         except ImportError:
             self._save_torsionbar_fallback(model)
             return True
@@ -531,6 +533,8 @@ def main():
     p.add_argument("--file", "-f", help="Read request from file")
     p.add_argument("--skip-review", action="store_true")
     p.add_argument("--verbose", "-v", action="store_true")
+    p.add_argument("--auto-build", "-a", action="store_true",
+                   help="Auto-build .ame via AMEPython.exe (requires Amesim env)")
     args = p.parse_args()
 
     if args.file:
@@ -541,7 +545,8 @@ def main():
     else:
         p.print_help(); sys.exit(1)
 
-    pipeline = TriAgentPipeline(skip_review=args.skip_review, verbose=args.verbose)
+    pipeline = TriAgentPipeline(skip_review=args.skip_review, verbose=args.verbose,
+                                 auto_build=args.auto_build)
     state = asyncio.run(pipeline.run(req))
 
     ok = False

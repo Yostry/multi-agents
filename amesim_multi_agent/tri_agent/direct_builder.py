@@ -76,6 +76,15 @@ ROLE_TO_ICONS: dict[str, list[str]] = {
     "gain": ["sigain", "siggain"],
     "sensor": ["anglesensor", "displacementsensor"],
     "control": ["control01"],
+    "stop": ["elasticendstop"],
+    "elastic_stop": ["elasticendstop"],
+    "contact": ["elasticendstop"],
+    "bounce_stop": ["elasticendstop"],
+    "position_sensor": ["anglesensor", "displacementsensor"],
+    "velocity_sensor": ["velocitysensor"],
+    "displacement_sensor": ["displacementsensor"],
+    "force_input": ["zeroforcesource"],
+    "initial_height": [],  # phyiscal attr, not a component
     # PLM, M6DOF, ESS — 不在 KB 但真实 Amesim 中存在
     "calcul": ["plmcalcul"],
     "plm_calcul": ["plmcalcul"],
@@ -202,20 +211,31 @@ class DirectBuilder:
             alias_map[node.node_id] = alias
 
         # Phase 2: 规划连接
-        for edge in topology.edges:
+        used_line_ids = set()
+        for i, edge in enumerate(topology.edges):
             from_alias = alias_map.get(edge.source_node_id)
             to_alias = alias_map.get(edge.target_node_id)
             if not from_alias or not to_alias:
                 continue
 
-            # 简化: 所有连接使用默认端口
+            line_id = f"line_{from_alias}_{to_alias}"
+            if line_id in used_line_ids:
+                line_id = f"line_{from_alias}_{to_alias}_{i}"
+            used_line_ids.add(line_id)
+
+            # 根据 flow_type 确定端口分配
+            fp = 0  # 默认: 机械/信号 port 0
+            tp = 0
+            if edge.flow_type and "signal" in edge.flow_type:
+                fp, tp = 0, 0  # 信号域默认端口
+
             model.connections.append(ConnectionEntry(
                 from_component=from_alias,
-                from_port=0,  # 默认端口, 构建时 Amesim 会验证
+                from_port=fp,
                 to_component=to_alias,
-                to_port=0,
-                type="line",  # 线连接确保可视化
-                line_alias=f"line_{from_alias}_{to_alias}",
+                to_port=tp,
+                type="line",
+                line_alias=line_id,
                 waypoints=[],
             ))
 
@@ -226,22 +246,33 @@ class DirectBuilder:
         """为节点选择最佳 icon_name。"""
         self._load_kb()
 
-        # 0. role 本身是否就是一个有效的 icon_name
+        # 0. role 本身是否就是一个有效的 icon_name (需校验域匹配)
         role = (node.role or "").lower().replace(" ", "_")
         if role in self._icon_index:
-            return role
+            # 检查 icon 的库是否匹配节点域
+            entries = self._icon_index[role]
+            if isinstance(entries, list) and entries:
+                target_lib = DOMAIN_TO_LIB.get(node.domain, "")
+                matching = [e for e in entries if e.get("lib") == target_lib]
+                if matching:
+                    return role  # role 直接匹配到正确的库
+                # 不匹配 — 不直接返回, 继续用 ROLE_TO_ICONS 查找更好的候选
 
         # 1. 用 role 映射查找
         candidates = ROLE_TO_ICONS.get(role, [])
 
         # 2. 从 label 中提取关键词 (label 可能本身是 icon_name)
         label = (node.label or "").lower().replace("_", " ").strip()
-        # 直接用空格和下划线分割的每个词尝试
+        target_lib = DOMAIN_TO_LIB.get(node.domain, "")
         for word in label.replace("_", " ").split():
-            if word in self._icon_index and word not in candidates:
-                candidates.insert(0, word)
             if word in ROLE_TO_ICONS:
                 candidates.extend(ROLE_TO_ICONS[word])
+            # 仅当 word 匹配到正确域的 icon 时才直接作为候选
+            if word in self._icon_index and word not in candidates:
+                entries = self._icon_index[word]
+                if isinstance(entries, list) and entries:
+                    if target_lib and any(e.get("lib") == target_lib for e in entries):
+                        candidates.insert(0, word)
 
         # 3. 用 functional_description 中的关键词
         if not candidates:
@@ -268,7 +299,9 @@ class DirectBuilder:
             if icon in self._icon_index:
                 return icon
 
-        return candidates[0] if candidates else None
+        # 6. 如果 candidates 中有值但都不在 KB, 返回 None (不返回编造的名字)
+        # 只有 validated 的 icon 才能被使用
+        return None
 
     def _get_submodel_path(self, node: TopologyNode) -> str:
         """获取子模型库路径。"""
