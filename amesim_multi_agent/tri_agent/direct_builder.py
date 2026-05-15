@@ -207,17 +207,24 @@ class DirectBuilder:
 
     def _select_icon(self, node: TopologyNode) -> Optional[str]:
         """为节点选择最佳 icon_name。"""
-        # 1. 用 role 映射查找
+        self._load_kb()
+
+        # 0. role 本身是否就是一个有效的 icon_name
         role = (node.role or "").lower().replace(" ", "_")
+        if role in self._icon_index:
+            return role
+
+        # 1. 用 role 映射查找
         candidates = ROLE_TO_ICONS.get(role, [])
 
-        # 2. 从 label 中提取关键词
-        if not candidates:
-            label_parts = (node.label or "").lower().replace("_", " ").split()
-            for part in label_parts:
-                if part in ROLE_TO_ICONS:
-                    candidates = ROLE_TO_ICONS[part]
-                    break
+        # 2. 从 label 中提取关键词 (label 可能本身是 icon_name)
+        label = (node.label or "").lower().replace("_", " ").strip()
+        # 直接用空格和下划线分割的每个词尝试
+        for word in label.replace("_", " ").split():
+            if word in self._icon_index and word not in candidates:
+                candidates.insert(0, word)
+            if word in ROLE_TO_ICONS:
+                candidates.extend(ROLE_TO_ICONS[word])
 
         # 3. 用 functional_description 中的关键词
         if not candidates:
@@ -227,27 +234,22 @@ class DirectBuilder:
                     candidates = icons
                     break
 
-        # 4. 补充: domain 为 signal 时添加 signal 通用 icon
-        if not candidates and node.domain == "signal":
-            candidates = ["siggain"]
+        # 4. 按域补充
+        if not candidates and node.domain:
+            lib = DOMAIN_TO_LIB.get(node.domain, "")
+            for icon_name, entries in self._icon_index.items():
+                if isinstance(entries, list):
+                    for e in entries:
+                        if e.get("lib") == lib:
+                            candidates.append(icon_name)
+                            break
+                if len(candidates) >= 10:
+                    break
 
         # 5. 验证 KB 中的存在性, 选第一个存在的
         for icon in candidates:
             if icon in self._icon_index:
                 return icon
-
-        # 6. 最后的兜底: 从 KB 中按域搜索
-        if node.domain:
-            lib = DOMAIN_TO_LIB.get(node.domain, "")
-            domain_icons = []
-            for icon_name, entries in self._icon_index.items():
-                if isinstance(entries, list):
-                    for e in entries:
-                        if e.get("lib") == lib:
-                            domain_icons.append(icon_name)
-                            break
-            if domain_icons:
-                return domain_icons[0]
 
         return candidates[0] if candidates else None
 
