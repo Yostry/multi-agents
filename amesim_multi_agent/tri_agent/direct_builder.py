@@ -76,8 +76,25 @@ ROLE_TO_ICONS: dict[str, list[str]] = {
     "gain": ["sigain", "siggain"],
     "sensor": ["anglesensor", "displacementsensor"],
     "control": ["control01"],
-    # 热
+    # PLM, M6DOF, ESS — 不在 KB 但真实 Amesim 中存在
+    "calcul": ["plmcalcul"],
+    "plm_calcul": ["plmcalcul"],
+    "plm_wall": ["plmrefwall"],
+    "plm_pivot": ["plmpivot"],
+    "plm_assembly": ["plmassembly"],
+    "plm_body": ["dynamic_plmbody"],
+    "plm_zero": ["plmzer00"],
+    "m6dof_joint": ["m6dofannularlinear"],
+    "m6dof_body": ["dynamic_3Dbody"],
+    "m6dof_assembly": ["m6dofassembly"],
+    "m6dof_ground": ["zerospeedsource3D"],
+    "battery_cell": ["BatCellElectrochemical"],
     "temperature_source": ["th_ts", "th_temperaturesource"],
+    "electrical_ground": ["potential_reference"],
+    "current_source": ["zero_current_source"],
+    # ACE 超组件 (clone mode only)
+    "ace_custom": [],  # ACE 组件无法从 KB 构建, 需要 clone 原始 .ame
+    # 热
     "heat_source": ["th_hc", "th_heatflow_source"],
     "thermal_capacity": ["th_c"],
     "thermal_conduction": ["th_conduct"],
