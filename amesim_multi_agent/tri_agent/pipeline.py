@@ -26,6 +26,7 @@ from .agents.orchestrator import create_tri_orchestrator_agent
 from .agents.parameter_runner import create_parameter_runner_with_tools
 from .topology_graph import TopologyGraph, TorsionBarModel, ComponentEntry, ConnectionEntry
 from .experience_memory import ExperienceMemory
+from .direct_builder import DirectBuilder
 
 # ── 现有工具 (不重复造轮子) ──
 from ..tools.selector_tools import (
@@ -97,10 +98,12 @@ class TriAgentPipeline:
             if not self._await_approval():
                 return self.state
 
-        if not await self._run_connector_phase1():
+        # DirectBuilder: 简单模型走确定性 KB 搜索, 复杂模型走 LLM
+        if self._try_direct_build():
+            pass  # DirectBuilder 成功
+        elif not await self._run_connector_phase1():
             return self.state
-
-        if not await self._run_connector_phase2():
+        elif not await self._run_connector_phase2():
             return self.state
 
         if not await self._validate_and_fix():
@@ -144,6 +147,28 @@ class TriAgentPipeline:
         except Exception as e:
             self.state.errors.append(f"Orchestrator parse: {e}")
             return False
+
+    def _try_direct_build(self) -> bool:
+        """用 DirectBuilder 确定性构建 (简单模型, 无 LLM)。
+
+        若成功, 直接设置 torsionbar_model; 若失败, 返回 False 让 LLM fallback 接管。
+        """
+        graph = self.state.topology_graph
+        if not graph or graph.component_count > 8:
+            return False
+
+        try:
+            builder = DirectBuilder()
+            model = builder.build(graph)
+            if model and model.is_complete():
+                self.state.torsionbar_model = model
+                self.state.total_llm_calls += 0  # 不计入 LLM 调用
+                print(f"[OK]DirectBuilder: {model.summary()}")
+                return True
+        except Exception as e:
+            self.state.log(f"DirectBuilder failed: {e}")
+
+        return False
 
     # ================================================================
     # Phase: Connector Phase 1 (核心元件 + KB 搜索工具)
